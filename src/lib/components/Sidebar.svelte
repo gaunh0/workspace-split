@@ -43,7 +43,7 @@
         </svg>
       </span>
       <div>
-        <h1 class="text-sm font-semibold tracking-tight text-slate-100">ClingSpace</h1>
+        <h1 class="text-sm font-semibold tracking-tight text-slate-100">SpaceBox</h1>
         <p class="text-[11px] text-slate-500">Local-first workspace</p>
       </div>
     </div>

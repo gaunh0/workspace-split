@@ -2,5 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    clingspace_clone_lib::run()
+    spacebox_lib::run()
 }

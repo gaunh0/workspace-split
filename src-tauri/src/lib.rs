@@ -14,8 +14,9 @@ use tauri::Manager;
 use crate::error::{AppError, AppResult};
 use crate::state::AppState;
 
-/// Matches `identifier` in `tauri.conf.json`.
-const APP_IDENTIFIER: &str = "com.yourdomain.clingspace_clone";
+/// Folder under `%APPDATA%` that holds the database; matches `identifier` in
+/// `tauri.conf.json`.
+const DATA_DIR_NAME: &str = "com.gaunh0.spacebox";
 const DB_FILE_NAME: &str = "workspace.db";
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
@@ -60,5 +61,5 @@ pub fn run() {
 fn database_path() -> AppResult<PathBuf> {
     // On Windows `BaseDirs::data_dir` is `%APPDATA%` (Roaming).
     let base_dirs = BaseDirs::new().ok_or(AppError::DataDirUnavailable)?;
-    Ok(base_dirs.data_dir().join(APP_IDENTIFIER).join(DB_FILE_NAME))
+    Ok(base_dirs.data_dir().join(DATA_DIR_NAME).join(DB_FILE_NAME))
 }

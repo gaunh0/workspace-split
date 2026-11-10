@@ -1,14 +1,11 @@
-# Workspace Split
+# SpaceBox
 
 A **local-first project workspace for Windows**. Create "spaces", link files and folders from
 anywhere on disk, add notes, and search everything with SQLite FTS5 — **without copying or moving a
 single file**. The database stores absolute paths only.
 
-The app is a lightweight, ClingSpace-style clone built with Tauri v2 (no Electron), a Svelte 5
-frontend, and a Rust backend. Repository: <https://github.com/gaunh0/workspace-split>.
-
-> The desktop product name in `src-tauri/tauri.conf.json` is still `ClingSpace Clone`, inherited
-> from the scaffold; the repository is called **Workspace Split**.
+SpaceBox is built with Tauri v2 (no Electron), a Svelte 5 frontend, and a Rust backend.
+Repository: <https://github.com/gaunh0/workspace-split>.
 
 ## Features
 
@@ -111,7 +108,7 @@ src-tauri/target/release/               # portable executable
 ## Where data lives
 
 ```text
-%APPDATA%\com.yourdomain.clingspace_clone\workspace.db
+%APPDATA%\com.gaunh0.spacebox\workspace.db
 ```
 
 `directories::BaseDirs::data_dir()` resolves to `%APPDATA%` (Roaming) on Windows, and the folder
@@ -201,9 +198,19 @@ cargo test --lib
 The shell was bootstrapped with the official generator:
 
 ```powershell
-npm create tauri-app@latest clingspace-clone -- --template svelte-ts --manager npm --identifier com.yourdomain.clingspace_clone --tauri-version 2 --yes
+npm create tauri-app@latest spacebox -- --template svelte-ts --manager npm --identifier com.gaunh0.spacebox --tauri-version 2 --yes
 ```
 
 The `svelte-ts` template ships SvelteKit; this repository removes SvelteKit and adapter-static in
 favour of a plain Vite + Svelte SPA and adds Tailwind CSS 4, which keeps startup time and memory use
 lower.
+
+## Troubleshooting
+
+| Symptom | Fix |
+| --- | --- |
+| `failed to run 'cargo metadata' ... program not found` | Add `%USERPROFILE%\.cargo\bin` to your user `PATH`, then open a **new** terminal. |
+| `link.exe not found` or `cargo metadata` still fails | Install Visual Studio Build Tools with the *Desktop development with C++* workload (MSVC + Windows SDK). |
+| `The bundle identifier ... must contain only alphanumeric characters ...` | Tauri identifiers cannot contain `_`. Use hyphens, e.g. `com.example.my-app`. |
+| Port 1420 already in use | Stop the previous `npm run tauri dev` (or the leftover `spacebox.exe`) and retry. |
+| Window opens but files are not flagged missing | Press the refresh/check action in the UI; the watcher only reports changes while the app is running. |

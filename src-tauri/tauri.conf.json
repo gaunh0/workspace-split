@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "ClingSpace Clone",
+  "productName": "SpaceBox",
   "version": "0.1.0",
-  "identifier": "com.yourdomain.clingspace_clone",
+  "identifier": "com.gaunh0.spacebox",
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",
@@ -13,7 +13,7 @@
     "windows": [
       {
         "label": "main",
-        "title": "ClingSpace Clone",
+        "title": "SpaceBox",
         "width": 1180,
         "height": 760,
         "minWidth": 900,
@@ -32,8 +32,8 @@
   "bundle": {
     "active": true,
     "targets": ["nsis", "msi"],
-    "publisher": "yourdomain",
-    "copyright": "Copyright (c) 2026 yourdomain",
+    "publisher": "gaunh0",
+    "copyright": "Copyright (c) 2026 gaunh0",
     "shortDescription": "Local-first project workspace",
     "icon": [
       "icons/32x32.png",

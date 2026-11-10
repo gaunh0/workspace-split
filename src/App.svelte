@@ -364,7 +364,7 @@
             </div>
             <h3 class="mt-4 text-sm font-semibold text-slate-200">A workspace, not a copy</h3>
             <p class="mt-1.5 text-xs leading-relaxed text-slate-500">
-              Create a space, then link files and folders in place. ClingSpace stores only
+              Create a space, then link files and folders in place. SpaceBox stores only
               absolute paths and metadata in SQLite.
             </p>
           </div>
