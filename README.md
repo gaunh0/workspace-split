@@ -7,6 +7,19 @@ single file**. The database stores absolute paths only.
 SpaceBox is built with Tauri v2 (no Electron), a Svelte 5 frontend, and a Rust backend.
 Repository: <https://github.com/gaunh0/workspace-split>.
 
+## Origin and purpose
+
+SpaceBox is an **independent clone of [ClingSpace](https://clingspace.com)**, a commercial
+local-first project workspace for Windows. It is not affiliated with or endorsed by ClingSpace.
+
+The project exists for one reason: **to try Rust in a real desktop application**. The goal was to
+learn by building the parts that make Rust interesting here — a Tauri v2 backend, `rusqlite` with
+FTS5, `notify` file watching through `ReadDirectoryChangesW`, `thiserror`-based error handling, and
+Windows path normalization with `dunce`.
+
+It is a learning project, not a drop-in replacement for the original app. Features are implemented
+from scratch and intentionally kept small; the UI is a Svelte rewrite rather than a copy.
+
 ## Features
 
 - **Virtual grouping** — spaces reference files and folders in place, so nothing is duplicated.
