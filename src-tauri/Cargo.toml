@@ -1,0 +1,36 @@
+[package]
+name = "clingspace-clone"
+version = "0.1.0"
+description = "Local-first project workspace: group files and folders without copying them"
+authors = ["you"]
+edition = "2021"
+rust-version = "1.89"
+
+[lib]
+# The `_lib` suffix avoids a name clash with the binary on Windows.
+name = "clingspace_clone_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+tauri-plugin-fs = "2"
+tauri-plugin-log = "2"
+serde = { version = "1", features = ["derive"] }
+rusqlite = { version = "0.41", features = ["bundled"] }
+notify = "8"
+dunce = "1"
+directories = "6"
+thiserror = "2"
+log = "0.4"
+
+# Size/perf tuning for the release binary.
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+panic = "abort"
+strip = true
